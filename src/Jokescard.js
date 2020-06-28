@@ -6,8 +6,10 @@ const styles=makeStyles({
     card:{
         marginBottom:20,
         marginTop:20,
-        backgroundColor:'#ffd31d',
-        color:'#000000'
+        backgroundColor:'#000000',
+        color:'#FFDADF',
+        borderRadius:"18px",
+        opacity:"95%"
     },
     cContent:{
         padding:12
@@ -32,7 +34,7 @@ export default function Jokescard({joke,like,unLike,index}) {
         }
         })(Chip);
     return (
-        <Card className={classes.card} id={`joke-${index}`}>
+        <Card variant="outlined" className={classes.card} id={`joke-${index}`}>
             <CardContent className={classes.cContent}>
             {joke.categories.length>0?(
                 joke.categories.map((type)=>(
@@ -44,10 +46,10 @@ export default function Jokescard({joke,like,unLike,index}) {
             </Typography>
             </CardContent>
             <CardActions className={classes.cardAction}>
-            <Button variant='contained' onClick={()=>like(joke.id)} style={{backgroundColor:"#f57b51"}}>
+            <Button variant='contained' onClick={()=>like(joke.id)} style={{backgroundColor:"#FFDADF",fontWeight:'700'}}>
                 Like #karona😂
             </Button>
-            <Button variant='contained' color='default' onClick={()=>unLike(joke.id)} style={{backgroundColor:"#ffc38b"}}>
+            <Button variant='contained' onClick={()=>unLike(joke.id)} style={{backgroundColor:"#F12A41",fontWeight:'700'}}>
                 Unlike😖
             </Button>
             </CardActions>            
