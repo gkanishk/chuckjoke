@@ -130,21 +130,19 @@ const matchCategory=(jCat)=>{
   return false
 }
   return (
-    <div className='app-Comp' style={{background:'#d03447'}}>
+    <div className='app-Comp' >
       <CssBaseline />
       <Container>
-        <Typography variant='h2' align='center' margin='20'>
-          Chuck Norris JOKEsss
-        </Typography>
-        <AppBar style={{position:'sticky'}}>
+        <AppBar style={{position:'sticky',backgroundColor:'#FFDADF',color:'#000',borderRadius:"7px"}}>
         <Tabs value={currentTab} onChange={changeTab} centered>
-          <Tab label="Jokes" id="jokes-tab" aria-controls="jokes-panel" />
+          <Tab label="Jokes" id="jokes-tab" aria-controls="jokes-panel" style={{fontWeight:"700"}}/>
           <Tab label={
             <Badge 
             color='secondary'
             badgeContent={
               liked.length>0?liked.length:null
-            }>Likes</Badge>
+            } style={{fontWeight:"700"}}
+            >Likes</Badge>
           } id="like-tab" aria-controls="like-panel" />
         </Tabs>
         </AppBar>
@@ -154,10 +152,10 @@ const matchCategory=(jCat)=>{
           key={category} 
           control={
           <Checkbox 
-          name={category} 
-          color='primary' 
+          name={category}  
           checked={filterCategories.includes(category)}
           onChange={toggleCategory}
+          style={{color:"white"}}
           />} 
           label={category} />
         ))}
