@@ -95,7 +95,7 @@ const observeElement=(bj)=>{
     if(entries[0].isIntersecting===true){
       addMore();
       
-      console.log('Reached bottom of card')
+      // console.log('Reached bottom of card')
       observer.unobserve(bj);
     }
   },{

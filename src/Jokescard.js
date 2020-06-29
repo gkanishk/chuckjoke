@@ -6,8 +6,8 @@ const styles=makeStyles({
     card:{
         marginBottom:20,
         marginTop:20,
-        backgroundColor:'#000000',
-        color:'#FFDADF',
+        backgroundColor:'#FFDADF',
+        color:'#000000',
         borderRadius:"18px",
         opacity:"95%"
     },
@@ -46,7 +46,7 @@ export default function Jokescard({joke,like,unLike,index}) {
             </Typography>
             </CardContent>
             <CardActions className={classes.cardAction}>
-            <Button variant='contained' onClick={()=>like(joke.id)} style={{backgroundColor:"#FFDADF",fontWeight:'700'}}>
+            <Button variant='contained' onClick={()=>like(joke.id)} style={{backgroundColor:"#FFDAAE",fontWeight:'700'}}>
                 Like #karona😂
             </Button>
             <Button variant='contained' onClick={()=>unLike(joke.id)} style={{backgroundColor:"#F12A41",fontWeight:'700'}}>
