@@ -133,7 +133,7 @@ const matchCategory=(jCat)=>{
     <div className='app-Comp' >
       <CssBaseline />
       <Container>
-        <AppBar style={{position:'sticky',backgroundColor:'#FFDADF',color:'#000',borderRadius:"7px"}}>
+        <AppBar style={{position:'sticky',backgroundColor:'#FFDAAF',color:'#000',borderRadius:"7px"}}>
         <Tabs value={currentTab} onChange={changeTab} centered>
           <Tab label="Jokes" id="jokes-tab" aria-controls="jokes-panel" style={{fontWeight:"700"}}/>
           <Tab label={
