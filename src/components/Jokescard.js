@@ -23,7 +23,7 @@ const styles=makeStyles({
     }  
 })
 
-export default function Jokescard({joke,like,unLike,index}) {
+export default function JokesCard({joke,like,unLike,index}) {
     const classes=styles();
     const Type =withStyles({
         root:{
@@ -32,7 +32,8 @@ export default function Jokescard({joke,like,unLike,index}) {
             backgroundColor:'#e7d39f',
             color:'#000000'
         }
-        })(Chip);
+    })(Chip);
+
     return (
         <Card variant="outlined" className={classes.card} id={`joke-${index}`}>
             <CardContent className={classes.cContent}>

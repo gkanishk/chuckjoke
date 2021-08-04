@@ -1,28 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { CssBaseline, Container, Chip, Tabs, Tab, AppBar, FormControlLabel, Checkbox, Badge } from '@material-ui/core';
-import { makeStyles, withStyles } from '@material-ui/core/styles';
-import Jokescard from '../components/Jokescard';
+import { CssBaseline, Container, Tabs, Tab, AppBar, FormControlLabel, Checkbox, Badge } from '@material-ui/core';
+import JokesCard from '../components/JokesCard';
 import Loader from '../components/Loader';
 
-const styles = makeStyles({
-    card: {
-        marginBottom: 20,
-        marginTop: 20,
-        backgroundColor: '#ffd31d',
-        color: '#000000'
-    },
-    cContent: {
-        padding: 12
-    },
-    cardAction:
-    {
-        padding: 18
-    },
-    button: {
-        backgroundColor: '#f57b51'
-    }
-
-})
 
 export const Home = () => {
     const [jokes, setJokes] = useState([]);
@@ -32,7 +12,6 @@ export const Home = () => {
     const [loading, setLoading] = useState(false);
     const [categories, setCategories] = useState([]);
     const [filterCategories, setFilterCategories] = useState([]);
-    const classes = styles();
 
     useEffect(() => {
         fetch('https://api.icndb.com/jokes')
@@ -51,6 +30,11 @@ export const Home = () => {
             .catch(err => console.log(err))
     }, []);
 
+    useEffect(() => {
+        const bjElement = document.getElementById(`joke-${jokeStack.length - 1}`);
+        observeElement(bjElement);
+    }, [jokeStack])
+
     const like = (id) => {
         if (liked.find(i => i.id === id))
             return;
@@ -63,14 +47,6 @@ export const Home = () => {
         setLiked(newLiked);
 
     }
-    const Type = withStyles({
-        root: {
-            marginTop: 10,
-            marginBottom: 10,
-            backgroundColor: '#e7d39f',
-            color: '#000000'
-        }
-    })(Chip);
     const changeTab = (event, value) => {
         setCurrentTab(value)
     }
@@ -94,11 +70,7 @@ export const Home = () => {
         });
         observer.observe(bj);
     }
-    useEffect(() => {
-        const bjElement = document.getElementById(`joke-${jokeStack.length - 1}`);
-        observeElement(bjElement);
-    }, [jokeStack])
-
+    
     const toggleCategory = (event) => {
         const category = event.target.name
         if (filterCategories.includes(category)) {
@@ -148,14 +120,14 @@ export const Home = () => {
                     ))}
                     {jokeStack.map((joke, index) => {
                         if (joke.categories.length === 0 || matchCategory(joke.categories)) {
-                            return <Jokescard joke={joke} key={joke.id} like={like} unLike={unLike} index={index} />
+                            return <JokesCard joke={joke} key={joke.id} like={like} unLike={unLike} index={index} />
                         }
                     })}
                     {loading && <Loader />}
                 </div>
                 <div role='tabpanel' hidden={currentTab !== 1}>
                     {liked.length>0?liked.map((joke, index) => (
-                        <Jokescard joke={joke} key={joke.id} like={like} unLike={unLike} index={index} />
+                        <JokesCard joke={joke} key={joke.id} like={like} unLike={unLike} index={index} />
                     )):
                     <div className="empty-image-container" >
                     <img src="/empty.svg" alt="Empty Image" />
