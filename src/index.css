@@ -9,3 +9,23 @@ body {
 code {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
+.empty-image-container {
+  display: grid;
+  place-content: center;
+  place-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.empty-image-container img {
+  width: 24rem;
+  margin-top: 5rem;
+}
+
+.empty-image-container span {
+  font-size: large;
+  font-weight: 600;
+  text-align: center;
+  margin-top: 2rem;
+}
