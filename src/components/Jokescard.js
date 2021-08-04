@@ -1,5 +1,5 @@
 import React from 'react'
-import {Card,CardContent,CardActions,CssBaseline,Container,Typography,Button,Chip,Tabs,Tab, AppBar} from '@material-ui/core';
+import {Card,CardContent,CardActions,Typography,Button,Chip} from '@material-ui/core';
 import {makeStyles,withStyles} from '@material-ui/core/styles';
 
 const styles=makeStyles({
@@ -47,10 +47,10 @@ export default function Jokescard({joke,like,unLike,index}) {
             </CardContent>
             <CardActions className={classes.cardAction}>
             <Button variant='contained' onClick={()=>like(joke.id)} style={{backgroundColor:"#FFDAAE",fontWeight:'700'}}>
-                Like #karona😂
+                Like 😍
             </Button>
             <Button variant='contained' onClick={()=>unLike(joke.id)} style={{backgroundColor:"#F12A41",fontWeight:'700'}}>
-                Unlike😖
+                Unlike 😖
             </Button>
             </CardActions>            
         </Card>
